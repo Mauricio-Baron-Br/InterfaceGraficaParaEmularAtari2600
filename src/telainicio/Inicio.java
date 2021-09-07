@@ -19,9 +19,10 @@ import javax.swing.JPanel;
 
 public class Inicio extends JFrame implements KeyListener {
 
-	private JLabel lblImg;
-	private ImageIcon imgIcon[] = new ImageIcon[200];
-	private int x, y = 0;
+	private JLabel lblImg,lblImgEnd ;
+	private ImageIcon imgIconFront[] = new ImageIcon[200];
+	private ImageIcon imgIconEnd[] = new ImageIcon[200];
+	private int x = 0;
 	private boolean flagImage = true;
 
 	public Inicio() {
@@ -62,27 +63,45 @@ public class Inicio extends JFrame implements KeyListener {
 		}
 		if (e.getKeyCode() == e.VK_UP) {
 
-			imgIcon[0] = imagemEscalonada("./labels/c_ChopperCommand_front.jpg", 200, 240);
-			imgIcon[1] = imagemEscalonada("./labels/c_Enduro_front.jpg", 200, 240);
-			imgIcon[2] = imagemEscalonada("./labels/c_Hero_front.jpg", 200, 240);
-			imgIcon[3] = imagemEscalonada("./labels/c_Megamania_front.jpg", 200, 240);
-			imgIcon[4] = imagemEscalonada("./labels/c_Pitfall_front.jpg", 200, 240);
-			imgIcon[5] = imagemEscalonada("./labels/c_RiverRaid_front.jpg", 200, 240);
-			imgIcon[6] = imagemEscalonada("./labels/c_SeaBattle_front.jpg", 200, 240);
+			imgIconFront[0] = imagemEscalonada("./labels/c_ChopperCommand_front.jpg", 200, 240);
+			imgIconFront[1] = imagemEscalonada("./labels/c_Enduro_front.jpg", 200, 240);
+			imgIconFront[2] = imagemEscalonada("./labels/c_Hero_front.jpg", 200, 240);
+			imgIconFront[3] = imagemEscalonada("./labels/c_Megamania_front.jpg", 200, 240);
+			imgIconFront[4] = imagemEscalonada("./labels/c_Pitfall_front.jpg", 200, 240);
+			imgIconFront[5] = imagemEscalonada("./labels/c_RiverRaid_front.jpg", 200, 240);
+			imgIconFront[6] = imagemEscalonada("./labels/c_SeaBattle_front.jpg", 200, 240);
+			
+			imgIconEnd[0] = imagemEscalonada("./labels/c_ChopperCommand_end.jpg", 210, 50);
+			imgIconEnd[1] = imagemEscalonada("./labels/c_Enduro_end.jpg", 210, 50);
+			imgIconEnd[2] = imagemEscalonada("./labels/c_Hero_end.jpg", 210, 50);
+			imgIconEnd[3] = imagemEscalonada("./labels/c_Megamania_end.jpg", 210, 50);
+			imgIconEnd[4] = imagemEscalonada("./labels/c_Pitfall_end.jpg", 210, 50);
+			imgIconEnd[5] = imagemEscalonada("./labels/c_RiverRaid_end.jpg", 210, 50);
+			imgIconEnd[6] = imagemEscalonada("./labels/c_SeaBattle_end.jpg", 210, 50);
 
 			if (flagImage != false) {
-				lblImg = new JLabel(imgIcon[0]);
-				lblImg.setBounds(50, 240, imgIcon[0].getIconWidth(), imgIcon[0].getIconHeight());
+				lblImg = new JLabel(imgIconFront[0]);
+				lblImgEnd = new JLabel(imgIconEnd[0]);
+				lblImg.setBounds(50, 240, imgIconFront[0].getIconWidth(), imgIconFront[0].getIconHeight());
+				lblImgEnd.setBounds(380,190, imgIconEnd[0].getIconWidth(), imgIconEnd[0].getIconHeight());
 				add(lblImg);
+				add(lblImgEnd);
 				flagImage = false;
+			}
+			if(x>6) {
+				x=0;
 			}
 
 			if (lblImg.getIcon() != null) {
-				lblImg.setIcon(imgIcon[x]);
-				lblImg.setBounds(50, 240, imgIcon[0].getIconWidth(), imgIcon[0].getIconHeight());
+				lblImg.setIcon(imgIconFront[x]);
+				lblImg.setBounds(50, 240, imgIconFront[0].getIconWidth(), imgIconFront[0].getIconHeight());
+				lblImgEnd.setIcon(imgIconEnd[x]);
+				lblImgEnd.setBounds(380, 190, imgIconEnd[0].getIconWidth(), imgIconEnd[0].getIconHeight());
 				add(lblImg);
+				add(lblImgEnd);
 				x++;
 				add(lblImg);
+				add(lblImgEnd);
 				repaint();
 
 			} else {
@@ -93,18 +112,29 @@ public class Inicio extends JFrame implements KeyListener {
 		}
 		if (e.getKeyCode() == e.VK_DOWN) {
 
-			imgIcon[0] = imagemEscalonada("./labels/c_ChopperCommand_front.jpg", 200, 240);
-			imgIcon[1] = imagemEscalonada("./labels/c_Enduro_front.jpg", 200, 240);
-			imgIcon[2] = imagemEscalonada("./labels/c_Hero_front.jpg", 200, 240);
-			imgIcon[3] = imagemEscalonada("./labels/c_Megamania_front.jpg", 200, 240);
-			imgIcon[4] = imagemEscalonada("./labels/c_Pitfall_front.jpg", 200, 240);
-			imgIcon[5] = imagemEscalonada("./labels/c_RiverRaid_front.jpg", 200, 240);
-			imgIcon[6] = imagemEscalonada("./labels/c_SeaBattle_front.jpg", 200, 240);
-
+			imgIconFront[0] = imagemEscalonada("./labels/c_ChopperCommand_front.jpg", 200, 240);
+			imgIconFront[1] = imagemEscalonada("./labels/c_Enduro_front.jpg", 200, 240);
+			imgIconFront[2] = imagemEscalonada("./labels/c_Hero_front.jpg", 200, 240);
+			imgIconFront[3] = imagemEscalonada("./labels/c_Megamania_front.jpg", 200, 240);
+			imgIconFront[4] = imagemEscalonada("./labels/c_Pitfall_front.jpg", 200, 240);
+			imgIconFront[5] = imagemEscalonada("./labels/c_RiverRaid_front.jpg", 200, 240);
+			imgIconFront[6] = imagemEscalonada("./labels/c_SeaBattle_front.jpg", 200, 240);
+			
+			imgIconEnd[0] = imagemEscalonada("./labels/c_ChopperCommand_end.jpg", 210, 50);
+			imgIconEnd[1] = imagemEscalonada("./labels/c_Enduro_end.jpg", 210, 50);
+			imgIconEnd[2] = imagemEscalonada("./labels/c_Hero_end.jpg", 210, 50);
+			imgIconEnd[3] = imagemEscalonada("./labels/c_Megamania_end.jpg", 210, 50);
+			imgIconEnd[4] = imagemEscalonada("./labels/c_Pitfall_end.jpg", 210, 50);
+			imgIconEnd[5] = imagemEscalonada("./labels/c_RiverRaid_end.jpg", 210, 50);
+			imgIconEnd[6] = imagemEscalonada("./labels/c_SeaBattle_end.jpg", 210, 50);
+			
 			if (flagImage != false) {
-				lblImg = new JLabel(imgIcon[x]);
-				lblImg.setBounds(50, 240, imgIcon[0].getIconWidth(), imgIcon[0].getIconHeight());
+				lblImg = new JLabel(imgIconFront[0]);
+				lblImgEnd = new JLabel(imgIconEnd[0]);
+				lblImg.setBounds(50, 240, imgIconFront[0].getIconWidth(), imgIconFront[0].getIconHeight());
+				lblImgEnd.setBounds(380,190, imgIconEnd[0].getIconWidth(), imgIconEnd[0].getIconHeight());
 				add(lblImg);
+				add(lblImgEnd);
 				flagImage = false;
 			}
 			if(x<0) {
@@ -112,17 +142,19 @@ public class Inicio extends JFrame implements KeyListener {
 			}
 
 			if (lblImg.getIcon() != null) {
-				lblImg.setIcon(imgIcon[x]);
-				lblImg.setBounds(50, 240, imgIcon[0].getIconWidth(), imgIcon[0].getIconHeight());
+				lblImg.setIcon(imgIconFront[x]);
+				lblImg.setBounds(50, 240, imgIconFront[0].getIconWidth(), imgIconFront[0].getIconHeight());
+				lblImgEnd.setIcon(imgIconEnd[x]);
+				lblImgEnd.setBounds(380, 190, imgIconEnd[0].getIconWidth(), imgIconEnd[0].getIconHeight());
 				add(lblImg);
+				add(lblImgEnd);
 				x--;
 				add(lblImg);
+				add(lblImgEnd);
 				repaint();
 
-			}
-			else
-			{
-				x = 6;
+			} else {
+				x = 0;
 				flagImage = true;
 			}
 
